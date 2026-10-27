@@ -1,0 +1,12 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "“John", email = "“john@email.com”" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi[all]>=0.162.0",
+]
