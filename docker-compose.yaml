@@ -5,6 +5,8 @@ services:
       context: ./backend
     container_name: backend
     restart: always
+    volumes:
+      - ./backend/app:/app
     ports:
       - "8001:8000"
     command: |
@@ -18,6 +20,8 @@ services:
       context: ./frontend
     container_name: frontend
     restart: always
+    volumes:
+      - ./frontend/app:/app
     ports:
       - "8002:8000"
     command: |
