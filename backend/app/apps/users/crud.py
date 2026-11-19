@@ -3,12 +3,13 @@ from fastapi import HTTPException, status
 from apps.users.models import User
 from apps.users.schemas import CreateUserSchema
 from sqlalchemy.exc import IntegrityError
+from apps.core.security import PasswordHandler
 
 class UserDBManager:
     async def create_user(self, new_user: CreateUserSchema, session: AsyncSession):
         user = User(
             email=new_user.email.lower(),
-            hashed_password=new_user.password,
+            hashed_password=PasswordHandler.get_password_hash(new_user.password),
             name=new_user.name
         )
         session.add(user)
